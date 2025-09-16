@@ -1,0 +1,44 @@
+---
+// import SpeakerCard from "../components/speaker_card.astro";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const speakers = [
+    {
+        name: "Anna Schneider",
+        role: "Software Engineer at Microsoft",
+        photo: "/images/speakers/anna_schneider.jpg",
+        talkTitle: "Building Inclusive Tech Communities",
+        talkDescription:
+            "Discover strategies to foster inclusivity in tech communities, drawing from my experience at Microsoft and PyLadies.",
+        socialLinks: {
+            twitter: "https://twitter.com/annaschneiderr",
+            linkedin: "https://www.linkedin.com/in/annaschneiderr/",
+            github: "",
+        },
+    },
+];
+---
+
+<div class="bg-white dark:bg-stone-950">
+    <div class="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center">
+            <h2
+                class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+            >
+                {t("speakers.title")}
+            </h2>
+            <p class="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                {t("speakers.subtitle")}
+            </p>
+        </div>
+        <div
+            class="mt-20 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
+            <!-- {speakers.map((speaker) => <SpeakerCard speaker={speaker} />)} -->
+        </div>
+    </div>
+</div>
